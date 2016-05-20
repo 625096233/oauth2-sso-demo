@@ -1,4 +1,4 @@
-package com.example;
+package com.github.bilak.oauth2poc;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

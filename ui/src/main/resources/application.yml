@@ -12,8 +12,7 @@ security:
       user-authorization-uri: ${auth-server}/oauth/authorize
       scope: read, write
     resource:
-      jwt:
-        key-uri: ${auth-server}/oauth/token_key
+      token-info-uri: ${auth-server}/oauth/check_token
 logging:
   level:
     org.springframework.security: DEBUG
