@@ -1,3 +1,27 @@
+# SPRING
+spring:
+    aop:
+        proxyTargetClass: true
+    application:
+        name: resource-service
+    jackson:
+        date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+
+# SERVER
+server:
+    port: 7777
+
+# EUREKA
+eureka:
+  instance:
+      hostname: localhost
+      port: 9050
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+# SECURITY
+auth-server: http://localhost:9999/uaa
 security:
     oauth2:
         client:
@@ -5,10 +29,4 @@ security:
             client-secret: demo
         resource:
             token-info-uri: ${auth-server:http://localhost:9999/uaa}/oauth/check_token
-server:
-    port: 7777
-spring:
-    jackson:
-        date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
-    profiles:
-        include: postgresql
+

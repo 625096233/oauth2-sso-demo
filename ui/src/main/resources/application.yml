@@ -1,6 +1,25 @@
-auth-server: http://localhost:9999/uaa
+# SPRING
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  application:
+    name: ui-service
+
+# SERVER
 server:
-  port: 8080
+  port: 8000
+
+# EUREKA
+eureka:
+  instance:
+      hostname: localhost
+      port: 9050
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+# SECURITY
+auth-server: http://localhost:9999/uaa
 security:
   basic:
     enabled: false
@@ -13,12 +32,13 @@ security:
       scope: read, write
     resource:
       token-info-uri: ${auth-server}/oauth/check_token
+
+# LOGGING
 logging:
   level:
     org.springframework.security: DEBUG
-spring:
-  jackson:
-    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+
+# ZUUL
 zuul:
   routes:
     message:

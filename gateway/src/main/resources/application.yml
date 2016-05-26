@@ -1,0 +1,58 @@
+# SPRING
+spring:
+  aop:
+    proxyTargetClass: true
+  application:
+    name: gateway-service
+
+# SERVER
+server:
+  port: 8080
+
+# EUREKA
+eureka:
+  instance:
+    hostname: localhost
+    port: 9050
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+    fetch-registry: true
+
+# SECURITY
+security:
+  # Disable Spring Boot basic authentication
+  basic:
+    enabled: false
+  oauth2:
+    sso:
+      loginPath: /login
+    client:
+      access-token-uri: http://localhost:${server.port}/uaa/oauth/token
+      user-authorization-uri: /uaa/oauth/authorize
+      client-id: demo
+      client-secret: demo
+      scope: read, write
+    resource:
+      token-info-uri: /uaa/oauth/check_token
+  sessions: always
+      #id: openid
+      #serviceId: ${PREFIX:}resource
+
+# LOGGING
+logging:
+  level.org.springframework.security: DEBUG
+
+# ZUUL
+zuul:
+  routes:
+    # TODO add services
+    resource-service:
+      sensitiveHeaders:
+      path: /messages/**
+      stripPrefix: false
+    uaa-service:
+      sensitiveHeaders:
+      path: /uaa/**
+      stripPrefix: false
+  add-proxy-headers: true

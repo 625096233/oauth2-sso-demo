@@ -1,26 +1,7 @@
-# SECURITY
-security:
-  oauth2:
-    client:
-      client-id: demo
-      client-secret: demo
-      scope: read, write
-      auto-approve-scopes: .*
-    authorization:
-      check-token-access: permitAll()
-# SERVER
-server:
-  port: 9999
-  context-path: /uaa
-# LOGGING
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
 # SPRING
 spring:
   application:
-    name: authorizationserver
+    name: uaa-service
   # POSTGRE
   #datasource:
   #  url: jdbc:postgresql://localhost:5432/oauth2
@@ -39,6 +20,39 @@ spring:
       database-platform: org.hibernate.dialect.H2Dialect
   hibernate:
     ddl-aut: validate
+
+# SERVER
+server:
+  port: 9999
+  context-path: /uaa
+  use-forward-headers: true
+
+# EUREKA
+eureka:
+  instance:
+      hostname: localhost
+      port: 9050
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+# SECURITY
+security:
+  oauth2:
+    client:
+      client-id: demo
+      client-secret: demo
+      scope: read, write
+      auto-approve-scopes: .*
+    authorization:
+      check-token-access: permitAll()
+
+# LOGGING
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+
 # LIQUIBASE
 liquibase:
   enabled: true

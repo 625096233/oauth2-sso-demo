@@ -32,6 +32,7 @@
         <module>resource</module>
         <module>ui</module>
         <module>gateway</module>
+        <module>discovery</module>
     </modules>
 
     <dependencyManagement>
