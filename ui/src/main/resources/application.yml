@@ -8,6 +8,8 @@ spring:
 # SERVER
 server:
   port: 8000
+  context-path: /ui
+  use-forward-headers: true
 
 # EUREKA
 eureka:

@@ -55,4 +55,8 @@ zuul:
       sensitiveHeaders:
       path: /uaa/**
       stripPrefix: false
+    ui-service:
+      sensitiveHeaders:
+      path: /ui/**
+      stripPrefix: false
   add-proxy-headers: true
