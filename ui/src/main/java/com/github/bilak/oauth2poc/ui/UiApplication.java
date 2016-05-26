@@ -1,4 +1,4 @@
-package com.github.bilak.oauth2poc;
+package com.github.bilak.oauth2poc.ui;
 
 import org.apache.catalina.filters.RequestDumperFilter;
 import org.springframework.boot.SpringApplication;

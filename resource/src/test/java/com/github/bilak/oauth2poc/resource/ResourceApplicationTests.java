@@ -1,4 +1,4 @@
-package com.github.bilak.oauth2poc;
+package com.github.bilak.oauth2poc.resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,9 +7,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = UiApplication.class)
+@SpringApplicationConfiguration(classes = ResourceApplication.class)
 @WebAppConfiguration
-public class UiApplicationTests {
+public class ResourceApplicationTests {
 
 	@Test
 	public void contextLoads() {

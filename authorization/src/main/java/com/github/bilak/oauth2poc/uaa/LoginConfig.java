@@ -1,4 +1,4 @@
-package com.github.bilak.oauth2poc;
+package com.github.bilak.oauth2poc.uaa;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
