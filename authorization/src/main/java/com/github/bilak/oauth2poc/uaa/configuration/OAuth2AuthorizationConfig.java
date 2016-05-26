@@ -1,4 +1,4 @@
-package com.github.bilak.oauth2poc.uaa;
+package com.github.bilak.oauth2poc.uaa.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

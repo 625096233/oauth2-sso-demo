@@ -1,4 +1,4 @@
-package com.github.bilak.oauth2poc.uaa;
+package com.github.bilak.oauth2poc.uaa.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
